@@ -21,6 +21,10 @@ public class US_301 extends BaseDriver {
 
         WebElement iframe = driver.findElement(By.cssSelector("[class='EJIframeV3 EJOverlayV3']"));
         driver.switchTo().frame(iframe);
+
+        WebElement demoBooktext=driver.findElement(By.xpath("//h5[text()='Demo eBook']"));
+        Assert.assertTrue("Hatalı işlem",demoBooktext.getText().contains("Demo eBook"));
+
         WebElement AddPromoCode = driver.findElement(By.xpath("//button[text()='Add Promo Code']"));
         wait.until(ExpectedConditions.elementToBeClickable(AddPromoCode));
         AddPromoCode.click();
@@ -33,8 +37,6 @@ public class US_301 extends BaseDriver {
         apply.click();
 
         WebElement text = driver.findElement(By.xpath("//span[text()='Invalid promo code']"));
-        System.out.println("text.getText() = " + text.getText());
-
         Assert.assertTrue("Hatalı işlem.", text.getText().contains("Invalid"));
 
         BekleKapat();
