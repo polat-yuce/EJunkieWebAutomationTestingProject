@@ -1,4 +1,4 @@
-package Utlity;
+package Test;
 
 public class MyFunc {
 
